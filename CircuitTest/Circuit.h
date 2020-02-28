@@ -5,19 +5,20 @@ using namespace std;
 
 class Circuit
 {
-private:
-    int* _pResistors;
-    int* _pCapacitors;
+protected:
+    int* _pResistors = 0;
+    int* _pCapacitors = 0;
+    float _resistance = 0;
 
 public:
-    Circuit(int* pResistors[], int* pCapacitors[])
-    {
-        _pResistors = new int[];
-        _pCapacitors = new int[];
-
-        delete[] _pResistors;
-        delete[] _pCapacitors;
-    }
+   
+    Circuit(int resistors, int capacitors, int resistance);
     ~Circuit();
+
+    // Copy Constructor
+    Circuit(const Circuit&);
+
+    // Assignment Operator
+    Circuit& operator=(const Circuit&);
 };
 
